@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from "react";
 import BotCard from "./BotCard"
 
-function BotCollection() {
+function BotCollection({onEnlist}) {
   // Your code here
 
   const [bots, setBots] = useState([])
@@ -23,7 +23,7 @@ function BotCollection() {
       <div className="row">
         {/*...and here..*/}
         {bots.map((bot) => (
-          <BotCard key={bot.id} bot= {bot}/>
+          <BotCard key={bot.id} bot= {bot} onEnlist={onEnlist}/>
         ))}
       </div>
     </div>
