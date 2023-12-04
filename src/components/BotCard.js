@@ -10,15 +10,15 @@ const botTypeClasses = {
 };
 
 function BotCard({ bot, onEnlist }) {
+  const handleEnlistClick = () => {
+    onEnlist(bot);
+  };
+
   return (
     <div className="ui column">
-      <div
-        className="ui card"
-        key={bot.id}
-        onClick={() => onEnlist(bot)}
-      >
+      <div className="ui card" key={bot.id} onClick={handleEnlistClick}>
         <div className="image">
-          <img alt="oh no!" src={bot.avatar_url} />
+          <img alt="Bot avatar" src={bot.avatar_url} />
         </div>
         <div className="content">
           <div className="header">
@@ -34,7 +34,6 @@ function BotCard({ bot, onEnlist }) {
             <i className="icon heartbeat" />
             {bot.health}
           </span>
-
           <span>
             <i className="icon lightning" />
             {bot.damage}
@@ -48,7 +47,7 @@ function BotCard({ bot, onEnlist }) {
               <button
                 className="ui mini red button"
                 onClick={() =>
-                  console.log("add code to connect event listener")
+                  console.log("Add code to connect event listener")
                 }
               >
                 x
@@ -60,7 +59,5 @@ function BotCard({ bot, onEnlist }) {
     </div>
   );
 }
-
-
 
 export default BotCard;
