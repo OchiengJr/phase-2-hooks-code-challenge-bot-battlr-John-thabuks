@@ -21,6 +21,31 @@ function BotsPage() {
     setEnlistedBots(updatedEnlistedBots);
   };
 
+
+  const dischargeBot = async (bot) => {
+    try {
+      // Make an API call to delete the bot from the backend
+      const response = await fetch(`http://localhost:8002/bots/${bot.id}`, {
+        method: 'DELETE',
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to discharge bot');
+      }
+
+      // Remove the bot from the enlistedBots state
+      const updatedEnlistedBots = enlistedBots.filter(
+        (enlistedBot) => enlistedBot.id !== bot.id
+      );
+      setEnlistedBots(updatedEnlistedBots);
+
+      console.log('Bot discharged successfully');
+    } catch (error) {
+      console.error('Error discharging bot:', error);
+    }
+  };
+
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -47,6 +72,7 @@ function BotsPage() {
         availableBots={availableBots}
         onEnlist={enlistBot}
         onRelease={releaseBot} 
+        onDischarge={dischargeBot}   
       />
     </div>
   );

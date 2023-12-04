@@ -9,9 +9,15 @@ const botTypeClasses = {
   Captain: "icon star",
 };
 
-function BotCard({ bot, onEnlist }) {
+function BotCard({ bot, onEnlist, onDischarge}) {
   const handleEnlistClick = () => {
     onEnlist(bot);
+  };
+
+  // Edited
+  const handleDischargeClick = (event) => {
+    event.stopPropagation(); // Stop propagation to prevent calling onEnlist
+    onDischarge(bot);
   };
 
   return (
@@ -46,9 +52,7 @@ function BotCard({ bot, onEnlist }) {
             <div className="ui center aligned segment basic">
               <button
                 className="ui mini red button"
-                onClick={() =>
-                  console.log("Add code to connect event listener")
-                }
+                onClick={handleDischargeClick}   //Editted
               >
                 x
               </button>
