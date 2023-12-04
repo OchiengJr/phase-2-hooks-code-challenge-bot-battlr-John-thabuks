@@ -24,8 +24,8 @@ function BotCollection({ onEnlist, onRelease, onDischarge }) {
             key={bot.id} 
             bot={bot} 
             onEnlist={onEnlist}
-            onRelease={onRelease}      //Edited
-            onDischarge={onDischarge}   //Edited
+            onRelease={onRelease}      
+            onDischarge={onDischarge}   
           />
         ))}
       </div>

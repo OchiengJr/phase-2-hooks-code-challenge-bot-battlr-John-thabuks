@@ -14,9 +14,9 @@ function BotCard({ bot, onEnlist, onDischarge}) {
     onEnlist(bot);
   };
 
-  // Edited
+
   const handleDischargeClick = (event) => {
-    event.stopPropagation(); // Stop propagation to prevent calling onEnlist
+    event.stopPropagation(); 
     onDischarge(bot);
   };
 
@@ -52,7 +52,7 @@ function BotCard({ bot, onEnlist, onDischarge}) {
             <div className="ui center aligned segment basic">
               <button
                 className="ui mini red button"
-                onClick={handleDischargeClick}   //Editted
+                onClick={handleDischargeClick}   
               >
                 x
               </button>
